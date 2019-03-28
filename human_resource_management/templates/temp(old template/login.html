@@ -1,0 +1,116 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>登录页面</h1>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form class='form-login' method="post">
+                {% csrf_token %}
+                <h2 class="text-center">欢迎登录</h2>
+                <div class="form-group">
+                    <label for="id_username">用户名：</label>
+                    <input type="text" name='username' class="form-control" id="id_username" placeholder="Username"
+                        autofocus required>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">密码：</label>
+                    <input type="password" name='password' class="form-control" id="id_password" placeholder="Password"
+                        required>
+                </div>
+                <button type="reset" class="btn btn-default pull-left">重置</button>
+                <button type="submit" class="btn btn-primary pull-right">提交</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zh-CN">
+
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/test.jpg">
+
+    <title>登录</title>
+
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css">
+</head>
+
+<body>
+    <form class="form-signin" method="POST" enctype="multipart/form-data" action=".">
+        {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+        {% endif %}
+
+        {% csrf_token %}
+
+        {% for field in form %}
+        {{ field }}
+        {{ field.errors }}
+        {{ field.label_tag }} : {{ field }}
+        {% endfor %}
+
+        <div class="text-center mb-4">
+            <img class="mb-4" src="/static/images/test.jpg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">欢迎登录</h1>
+
+        </div>
+
+        <div class="form-label-group">
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required
+                autofocus>
+            <label for="username">账号</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+            <label for="password">密码</label>
+
+        </div>
+
+      
+
+        <!-- <div class="form-label-group">
+            {{ login_form.username.label_tag }}
+            {{ login_form.username }}
+        </div>
+        <div class="form-label-group">
+            {{ login_form.password.label_tag }}
+            {{ login_form.password }}
+        </div> -->
+
+        <!-- <button type="reset" class="btn btn-default pull-left">Reset</button> -->
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block pull-right" type="submit">Login</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018-2019</p>
+    </form>
+</body>
+
+</html>

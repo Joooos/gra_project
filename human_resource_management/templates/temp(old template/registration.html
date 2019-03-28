@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zh-CN">
+
+<head>
+    <!-- 新 Bootstrap4 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <!-- popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="/static/images/test.jpg">
+
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/floating-labels/floating-labels.css">
+</head>
+
+<body>
+    <form class="form-signin" method="POST" enctype="multipart/form-data">
+        {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+        {% endif %}
+
+        {% csrf_token %}
+
+        <div class="text-center mb-4">
+            <img class="mb-4" src="/static/images/test.jpg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Test</h1>
+            <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. </p>
+        </div>
+
+        <!-- <div class="form-label-group">
+            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <label for="inputEmail">账号</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" id="inputPassword1" class="form-control" placeholder="Password1" required>
+            <label for="inputPassword1">密码</label>
+        </div>
+
+        <div class="form-label-group">
+            <input type="password" id="inputPassword2" class="form-control" placeholder="Password2" required >
+            <label for="inputPassword2">确认</label>
+        </div> -->
+
+        <div class="form-label-group">
+            {{ register_form.username.label_tag }}
+            {{ register_form.username }}
+        </div>
+        <div class="form-label-group">
+            {{ register_form.password1.label_tag }}
+            {{ register_form.password1 }}
+        </div>
+        <div class="form-label-group">
+            {{ register_form.password2.label_tag }}
+            {{ register_form.password2 }}
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018-2019</p>
+    </form>
+</body>
+
+</html>

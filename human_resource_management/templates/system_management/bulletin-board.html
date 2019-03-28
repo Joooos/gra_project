@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HRMS - 公告栏</title>
+
+    <link href="../../static/css/style.default.css" rel="stylesheet">
+    <link href="../../static/css/morris.css" rel="stylesheet">
+    <link href="../../static/css/select2.css" rel="stylesheet" />
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/style.calendar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="headerwrapper">
+            <div class="header-left">
+                <a href="../../static/index.html" class="logo">
+                    <img src="../../static/picture/logo1.jpeg" alt="" height="50" width="100" />
+                </a>
+                <div class="pull-right">
+                    <a href="#" class="menu-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div><!-- header-left -->
+
+            <div class="header-right">
+
+                <div class="pull-right">
+
+                    <form class="form form-search" action="search-results.html">
+                        <input type="search" class="form-control" placeholder="Search" />
+                    </form>
+
+                    <div class="btn-group btn-group-list btn-group-notification">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">5</span>
+                        </button>
+                        <div class="dropdown-menu pull-right">
+                            <a href="#" class="link-right"><i class="fa fa-search"></i></a>
+                            <h5>Notification</h5>
+                            <ul class="media-list dropdown-list">
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user1.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nusja Nawancali</strong> likes a photo of you
+                                        <small class="date"><i class="fa fa-thumbs-up"></i> 15 minutes ago</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user2.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Weno Carasbong</strong> shared a photo of you in your <strong>Mobile
+                                            Uploads</strong> album.
+                                        <small class="date"><i class="fa fa-calendar"></i> July 04, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user3.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Venro Leonga</strong> likes a photo of you
+                                        <small class="date"><i class="fa fa-thumbs-up"></i> July 03, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user4.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nanterey Reslaba</strong> shared a photo of you in your <strong>Mobile
+                                            Uploads</strong> album.
+                                        <small class="date"><i class="fa fa-calendar"></i> July 03, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user1.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nusja Nawancali</strong> shared a photo of you in your <strong>Mobile
+                                            Uploads</strong> album.
+                                        <small class="date"><i class="fa fa-calendar"></i> July 02, 2014</small>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-footer text-center">
+                                <a href="#" class="link">See All Notifications</a>
+                            </div>
+                        </div><!-- dropdown-menu -->
+                    </div><!-- btn-group -->
+
+                    <div class="btn-group btn-group-list btn-group-messages">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge">2</span>
+                        </button>
+                        <div class="dropdown-menu pull-right">
+                            <a href="#" class="link-right"><i class="fa fa-plus"></i></a>
+                            <h5>New Messages</h5>
+                            <ul class="media-list dropdown-list">
+                                <li class="media">
+                                    <span class="badge badge-success">New</span>
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user1.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nusja Nawancali</strong>
+                                        <p>Hi! How are you?...</p>
+                                        <small class="date"><i class="fa fa-clock-o"></i> 15 minutes ago</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <span class="badge badge-success">New</span>
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user2.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Weno Carasbong</strong>
+                                        <p>Lorem ipsum dolor sit amet...</p>
+                                        <small class="date"><i class="fa fa-clock-o"></i> July 04, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user3.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Venro Leonga</strong>
+                                        <p>Do you have the time to listen to me...</p>
+                                        <small class="date"><i class="fa fa-clock-o"></i> July 03, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user4.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nanterey Reslaba</strong>
+                                        <p>It might seem crazy what I'm about to say...</p>
+                                        <small class="date"><i class="fa fa-clock-o"></i> July 03, 2014</small>
+                                    </div>
+                                </li>
+                                <li class="media">
+                                    <img class="img-circle pull-left noti-thumb" src="../../static/picture/user1.png"
+                                        alt="">
+                                    <div class="media-body">
+                                        <strong>Nusja Nawancali</strong>
+                                        <p>Hey I just met you and this is crazy...</p>
+                                        <small class="date"><i class="fa fa-clock-o"></i> July 02, 2014</small>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-footer text-center">
+                                <a href="#" class="link">See All Messages</a>
+                            </div>
+                        </div><!-- dropdown-menu -->
+                    </div><!-- btn-group -->
+
+                    <div class="btn-group btn-group-option">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img class="img-circle avatar-img" alt="" src="../../static/images/test.jpg">
+                            <span class="user-name">{{ request.user }}</span>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li><a href="account/profile.html"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+                            </li>
+                            <li><a href="#"><i class="glyphicon glyphicon-star"></i> Activity Log</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-log-out"></i>Sign Out</a></li>
+                        </ul>
+                    </div><!-- btn-group -->
+
+                </div><!-- pull-right -->
+
+            </div><!-- header-right -->
+
+        </div><!-- headerwrapper -->
+    </header>
+
+    <section>
+        <div class="mainwrapper">
+            <div class="leftpanel">
+                <div class="media profile-left">
+                    <a class="pull-left profile-thumb" href="profile.html">
+                        <img class="img-circle" src="../../static/picture/test.jpg" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ request.user }}</h4>
+                        <span class="user-options"><a href="{% url 'profile' %}"><i
+                                    class="glyphicon glyphicon-user"></i></a>
+                            <a href="message.html"><i class="glyphicon glyphicon-envelope"></i></a>
+                            <a href="user-setting.html"><i class="glyphicon glyphicon-cog"></i></a>
+                            <a href="{% url 'logout' %}"><i class="glyphicon glyphicon-log-out"></i></a>
+                        </span>
+                    </div>
+                </div><!-- media -->
+
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{% url 'bulletin-board' %}"><i class="fa fa-home"></i> <span>公告栏</span></a></li>
+                    <li><a href="messages.html"><span class="pull-right badge">5</span><i class="fa fa-envelope-o"></i>
+                            <span>消息</span></a></li>
+                    <!-- <li><a href="graphs.html"><i class="fa fa-bar-chart-o"></i> <span>近况总结</span></a> -->
+                    </li>
+                    <li class="parent"><a href="#"><i class="fa fa-suitcase"></i> <span>考勤</span></a>
+                        <ul class="children">
+                            <li><a href="alerts.html">考勤情况查看</a></li>
+                            <li><a href="buttons.html">请假</a></li>
+                            <li><a href="extras.html">请假统计</a></li>
+                            <li><a href="modals.html">加班统计</a></li>
+                            <li><a href="widgets.html">打卡</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li><a href="icons.html"><i class="fa fa-cube"></i> <span>系统功能</span></a></li> -->
+                    <li class="parent"><a href="#"><i class="fa fa-cube"></i> <span>系统功能</span></a>
+                        <ul class="children">
+                            <li><a href="basic-tables.html">权限管理</a></li>
+                            <li><a href="data-tables.html">公告管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent"><a href="#"><i class="fa fa-edit"></i> <span>员工信息</span></a>
+                        <ul class="children">
+                            <li><a href="{% url 'graph-forms' %}">员工信息统计</a></li>
+                            <li><a href="{% url 'general-forms' %}">新增员工信息</a></li>
+                            <li><a href="{% url 'search-forms' %}">员工信息查询</a></li>
+                            <!-- <li><a href="wysiwyg.html">离职原因调查表（任选）</a></li> -->
+                            <!-- <li><a href="form-validation.html">离职原因汇总（任选）</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="parent"><a href="#"><i class="fa fa-bars"></i> <span>薪资管理</span></a>
+                        <ul class="children">
+                            <li><a href="{% url 'payroll-entry' %}">员工每月工资录入</a></li>
+                            <li><a href="data-tables.html">工资成本统计分析</a></li>
+                            <li><a href="data-tables.html">员工奖惩记录(任选)</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent"><a href="#"><i class="fa fa-file-text"></i> <span>工作清单表</span></a>
+                        <ul class="children">
+                            <li><a href="{% url 'new-job-list' %}">工作清单</a></li>
+                            <li><a href="{% url 'worklist-summary' %}">工作清单汇总</a></li>
+                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="locked.html">Locked Screen</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                        </ul>
+                    </li>
+                    <li class="parent"><a href="#"><i class="fa fa-bar-chart-o"></i> <span>收支记账</span></a>
+                        <ul class="children">
+                            <li><a href="{% url 'income-entry' %}">收入录入</a></li>
+                            <li><a href="{% url 'expenditure-entry' %}">支出录入</a></li>
+                            <li><a href="{% url 'income-and-expenditure-details' %}">收支明细</a></li>
+                            <li><a href="data-tables.html">收支汇总</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>公司信息</span></a></li>
+                </ul>
+
+            </div><!-- leftpanel -->
+
+            <div class="mainpanel">
+                <div class="contentpanel">
+                    <div class="row row-stat">
+                        <div class="col-md-3">
+                            <div class="panel noborder">
+                                <div class="panel-heading noborder">
+                                    <div class="panel-btns">
+                                        <a href="#" class="panel-close tooltips" data-toggle="tooltip"
+                                            title="Close Panel"><i class="fa fa-times"></i></a>
+                                    </div><!-- panel-btns -->
+                                    <div class="panel-icon icon-user"><i class="fa fa-user"></i></div>
+                                    <div class="media-body">
+                                        <h1 class="mt5">9,421</h1>
+                                        <h5 class="md-title nomargin">Users</h5>
+                                    </div><!-- media-body -->
+                                </div><!-- panel-body -->
+                            </div><!-- panel -->
+                        </div><!-- col-md-3 -->
+
+                        <div class="col-md-3">
+                            <div class="panel noborder">
+                                <div class="panel-heading noborder">
+                                    <div class="panel-btns">
+                                        <a href="#" class="panel-close tooltips" data-toggle="tooltip"
+                                            title="Close Panel"><i class="fa fa-times"></i></a>
+                                    </div><!-- panel-btns -->
+                                    <div class="panel-icon icon-globe"><i class="fa fa-globe"></i></div>
+                                    <div class="media-body">
+                                        <h1 class="mt5">3,298</h1>
+                                        <h5 class="md-title nomargin">Visits</h5>
+                                    </div><!-- media-body -->
+                                </div><!-- panel-body -->
+                            </div><!-- panel -->
+                        </div><!-- col-md-3 -->
+
+                        <div class="col-md-3">
+                            <div class="panel noborder">
+                                <div class="panel-heading noborder">
+                                    <div class="panel-btns">
+                                        <a href="#" class="panel-close tooltips" data-toggle="tooltip"
+                                            title="Close Panel"><i class="fa fa-times"></i></a>
+                                    </div><!-- panel-btns -->
+                                    <div class="panel-icon icon-envelope"><i class="fa fa-envelope"></i></div>
+                                    <div class="media-body">
+                                        <h1 class="mt5">4,658</h1>
+                                        <h5 class="md-title nomargin">Messages</h5>
+                                    </div><!-- media-body -->
+                                </div><!-- panel-body -->
+                            </div><!-- panel -->
+                        </div><!-- col-md-3 -->
+
+                        <div class="col-md-3">
+                            <div class="panel noborder">
+                                <div class="panel-heading noborder">
+                                    <div class="panel-btns">
+                                        <a href="#" class="panel-close tooltips" data-toggle="tooltip"
+                                            title="Close Panel"><i class="fa fa-times"></i></a>
+                                    </div><!-- panel-btns -->
+                                    <div class="panel-icon icon-gavel"><i class="fa fa-gavel"></i></div>
+                                    <div class="media-body">
+                                        <h1 class="mt5">7,117</h1>
+                                        <h5 class="md-title nomargin">Order</h5>
+                                    </div><!-- media-body -->
+                                </div><!-- panel-body -->
+                            </div><!-- panel -->
+                        </div><!-- col-md-3 -->
+                    </div><!-- row -->
+
+                    <div class="row" style="display:none">
+                        <div class="col-md-4">
+                            <div id="basicflot" class="flotChart"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div id="basicflot2" class="flotChart"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div id="basicflot3" class="flotChart"></div>
+                        </div>
+                    </div><!-- row -->
+
+                    <div class="row" style="display:none">
+                        <div class="col-md-8">
+                            <div id="stacked-chart" class="height300"></div>
+                        </div>
+                    </div><!-- row -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel event-list-block">
+                                <div class="cal-day"></div>
+                                <ul class="event-list">
+                                    <li>Breakfast with Salma @ 7:00 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                    <li>Call to Hayek @ 10:00 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                    <li>Lunch with jhon @ 3:30 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                    <li>Meeting with Lisa @ 4:30 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                    <li>Skypee conf with sam @ 5:45 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                    <li>Gym @ 7:00 <a href="#" class="event-close"><i class="fa fa-trash-o"></i></a>
+                                    </li>
+                                    <li>Dinner with daniel @ 9:30 <a href="#" class="event-close"><i
+                                                class="fa fa-trash-o"></i></a></li>
+                                </ul>
+                                <input type="text" class="form-control evnt-input" placeholder="NOTES">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel calendar-block">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <section class="panel panel-default">
+                                <div class="clock-panel">
+                                    <h1>{{ month_and_day }}</h1>
+                                    <p class="text-left">{{ year_and_weekday }}</p>
+                                    <p class="text-left">{{ day_or_night }}</p>
+                                </div>
+                                <ul id="clock">
+                                    <li id="sec"></li>
+                                    <li id="hour"></li>
+                                    <li id="min"></li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div><!-- contentpanel -->
+            </div><!-- mainpanel -->
+        </div><!-- mainwrapper -->
+    </section>
+
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/modernizr.min.js"></script>
+    <script src="../../static/js/pace.min.js"></script>
+    <script src="../../static/js/retina.min.js"></script>
+    <script src="../../static/js/jquery.cookies.js"></script>
+    <script src="../../static/js/jquery.scrollto.min.js"></script>
+    <script src="../../static/js/jquery.slimscroll.js"></script>
+
+    <script src="../../static/js/jquery.flot.min.js"></script>
+    <script src="../../static/js/jquery.flot.resize.min.js"></script>
+    <script src="../../static/js/jquery.flot.spline.min.js"></script>
+    <script src="../../static/js/jquery.sparkline.min.js"></script>
+    <script src="../../static/js/morris.min.js"></script>
+    <script src="../../static/js/raphael-2.1.0.min.js"></script>
+    <script src="../../static/js/bootstrap-wizard.min.js"></script>
+    <script src="../../static/js/select2.min.js"></script>
+    <script src="../../static/js/css3clock.js"></script>
+    <script src="../../static/js/jquery-ui-1.10.3.min.js"></script>
+    <script src="../../static/js/moment.min.js"></script>
+    <script src="../../static/js/fullcalendar.min.js"></script>
+    <script src="../../static/js/custom.js"></script>
+    <script src="../../static/js/dashboard.js"></script>
+</body>
+
+</html>

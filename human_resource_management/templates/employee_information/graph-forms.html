@@ -1,0 +1,228 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+员工信息统计
+{% endblock %}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-btns">
+                    <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i
+                            class="fa fa-minus"></i></a>
+                    <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i
+                            class="fa fa-times"></i></a>
+                </div><!-- panel-btns -->
+                <h4 class="panel-title">Flot Charts </h4>
+
+            </div><!-- panel-heading -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6 mb30" id="era" style="min-width:400px;height:400px"></div>
+                    <div class="col-md-6 mb30" id="gender" style="min-width:400px;height:400px"></div>
+                </div><!-- col-md-6 -->
+            </div><!-- row -->
+
+        </div><!-- panel-body -->
+
+    </div><!-- panel -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i
+                        class="fa fa-minus"></i></a>
+                <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i
+                        class="fa fa-times"></i></a>
+            </div><!-- panel-btns -->
+            <h4 class="panel-title">Morris Charts</h4>
+
+        </div><!-- panel-heading -->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 mb30">
+                    <div id="department-chart" class="height400"></div>
+                </div>
+            </div><!-- row -->
+        </div><!-- panel-body -->
+    </div><!-- panel -->
+
+
+</div><!-- contentpanel -->
+
+</div><!-- mainpanel -->
+
+<script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
+<script src="https://img.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+
+<script src="https://img.highcharts.com.cn/highcharts/modules/variable-pie.js"></script>
+<script src="https://img.highcharts.com.cn/highcharts/themes/sand-signika.js"></script>
+
+<script src="https://img.highcharts.com.cn/highcharts/highcharts-3d.js"></script>
+
+
+<script type="text/javascript">
+    var percent_man = "{{ percent_man }}";
+    var percent_man1 = parseFloat(percent_man);
+    percent_man1 *= 100;
+    var percent_woman = "{{ percent_woman }}";
+    var percent_woman1 = parseFloat(percent_woman);
+    percent_woman1 *= 100;
+
+    // era
+    var percent_after_seven = "{{ percent_after_seven }}";
+    var percent_after_eight = "{{ percent_after_eight }}";
+    var percent_after_nine = "{{ percent_after_nine }}";
+    var percent_after_seven1 = parseFloat(percent_after_seven);
+    var percent_after_eight1 = parseFloat(percent_after_eight);
+    var percent_after_nine1 = parseFloat(percent_after_nine);
+
+    percent_after_seven1 *= 100;
+    percent_after_eight1 *= 100;
+    percent_after_nine1 *= 100;
+
+    // 部门人数
+    var department_num = JSON.parse("{{ department_num|safe }}");
+    var department_num1 = department_num.split(',')
+    console.log(department_num)
+    console.log(department_num1)
+    console.log(typeof (department_num));
+    console.log(typeof (department_num1));
+    var percent_depart = "{{ percent_depart }}";
+
+    // 年代
+    Highcharts.chart('era', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: '出生年月统计'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: '年代',
+            colorByPoint: true,
+            data: [{
+                name: '80后',
+                y: percent_after_eight1,
+                sliced: true,
+                selected: true
+            }, {
+                name: '90后',
+                y: percent_after_nine1
+            }, {
+                name: '70后',
+                y: percent_after_seven1
+            }]
+        }]
+    });
+
+    // 性别
+    Highcharts.setOptions({
+        colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+    });
+    Highcharts.chart('gender', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: '员工性别统计'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: '占比',
+            colorByPoint: true,
+            data: [{
+                name: '男',
+                y: percent_man1,
+                sliced: true,
+                selected: true
+            }, {
+                name: '女',
+                y: percent_woman1
+            }]
+        }]
+    });
+
+    // 部门
+    var chart = Highcharts.chart('department-chart', {
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '部门人数占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        // 传数组 ["部门"， 人数]
+        series: [{
+            type: 'pie',
+            name: '人数占比',
+            data:
+            [['Firefox', 45.0],
+            ['IE', 26.8],
+            {
+                name: 'Chrome',
+                y: 12.8,
+                sliced: true,
+                selected: true
+            },
+            ['Safari', 8.5],
+            ['Opera', 6.2],
+            ['Others', 0.7]]
+        }]
+    });
+</script>
+
+{% endblock %}

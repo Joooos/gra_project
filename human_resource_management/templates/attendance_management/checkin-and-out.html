@@ -1,0 +1,86 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+工作清单汇总
+{% endblock %}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="mb30"></div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="readonlyinput">姓名</label>
+
+                            <input type="text" value={{ request.user }} id="readonlyinput" class="form-control"
+                                readonly="readonly" />
+
+                        </div><!-- form-group -->
+
+                        <div class="mb30"></div>
+
+                        <label>打卡时间</label>
+                        <div class="input-group mb15">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                            <div class="bootstrap-timepicker"><input id="timepicker" type="text" class="form-control" />
+                            </div>
+                        </div><!-- input-group -->
+
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="readonlyinput">打卡类型</label>
+                            <input type="text" value="正常签到" id="readonlyinput" class="form-control"
+                                readonly="readonly" />
+                        </div><!-- form-group -->
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="readonlyinput">加班时长</label>
+                            <h6 class="col-sm-8">19:00后签退才会开始计算加班时长，不足1小时的不计入内如：签退时间为20:30，那么加班时长为1小时</h6>
+                            <input type="text" value="0" id="readonlyinput" class="form-control" readonly="readonly" />
+                        </div><!-- form-group -->
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert"
+                                    aria-hidden="true">&times;</button>
+                                <strong>打卡规则说明 </strong>9:00前：正常签到
+
+                                9:00～9:30：迟到
+
+                                9:31～11:59：不能打卡
+
+                                12:00～17:29：早退
+
+                                17:30及之后：正常签退
+                            </div>
+                        </div>
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <div class="btn-list">
+                                <button class="btn btn-success btn-rounded">提交</button>
+                            </div>
+                        </div>
+
+
+                    </div><!-- panel-body -->
+                </div><!-- panel -->
+
+            </div><!-- col-md-6 -->
+        </div>
+        <!--row-->
+    </div><!-- contentpanel -->
+</div>
+
+{% endblock %}
