@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 import time
 from django.forms import widgets
 from django import forms
-from account.forms import SelectTestForm
+from account.forms import SelectForm
 from .models import Payroll_Entry_Form
 from django.contrib.auth.decorators import login_required
 
@@ -48,5 +48,8 @@ def payroll_entry(request):
         #     return HttpResponse("Invalid.")
 
     elif request.method == "GET":
-        select_form = SelectTestForm()
+        select_form = SelectForm()
         return render(request, 'payroll_management/payroll-entry.html', {'select_form': select_form, })
+
+def analysis_of_wage_costs(request):
+    return render(request, "payroll_management/analysis-of-wage-costs.html", )

@@ -87,3 +87,7 @@ def income_and_expenditure_details(request):
             items.append(testlines.copy())
 
         return render(request, "income_and_expenditure/income-and-expenditure-details.html", {'items': items})
+
+
+def total_summary(request):
+    return render(request, "income_and_expenditure/total-summary.html", )

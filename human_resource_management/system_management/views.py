@@ -67,3 +67,11 @@ def bulletin_board(request):
     year_and_weekday = str(year) + ", " + weekday
     return render(request, "system_management/bulletin-board.html", {"month_and_day": month_and_day, "year_and_weekday": year_and_weekday
                                                                      , "day_or_night": day_or_night })
+
+
+
+def announcement_management(request):
+    return render(request, "system_management/announcement-management.html", )
+
+def company_information(request):
+    return render(request, "system_management/company-information.html", )

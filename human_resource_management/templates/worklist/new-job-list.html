@@ -28,23 +28,11 @@
                     <div class="panel-body">
                         <h5 class="lg-title">提出人</h5>
                         <p class="mb20">You can hide search box when you have only few items in select boxes.</p>
-                        <select id="select-search-hide" data-placeholder="Choose One" class="width300">
-                            <option value="">Choose One</option>
-                            <option value="AK">Alaska</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="CA">California</option>
-                            <option value="NV">Nevada</option>
-                            <option value="OR">Oregon</option>
-                            <option value="WA">Washington</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="CO">Colorado</option>
-                            <option value="ID">Idaho</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="UT">Utah</option>
-                            <option value="WY">Wyoming</option>
+                        <select id="select-search-hide" data-placeholder="" class="width300">
+                            <option value="">请选择</option>
+                            {% for value in select_form.real_name_list %}
+                            <option value="{{ value }}">{{ value }}</option>
+                            {% endfor %}
                         </select>
 
                         <div class="mb30"></div>
@@ -54,65 +42,41 @@
                             with the multiple attribute. </p>
                         <select id="select-multi" data-placeholder="Choose One" multiple class="width300">
                             <option value="">Choose One</option>
-                            <optgroup label="Alaskan/Hawaiian Time Zone">
-                                <option value="AK">Alaska</option>
-                                <option value="HI">Hawaii</option>
+                            <optgroup label="技术部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_techdepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
                             </optgroup>
-                            <optgroup label="Pacific Time Zone">
-                                <option value="CA">California</option>
-                                <option value="NV">Nevada</option>
-                                <option value="OR">Oregon</option>
-                                <option value="WA">Washington</option>
+                            <optgroup label="人事部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_persondepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
                             </optgroup>
-                            <optgroup label="Mountain Time Zone">
-                                <option value="AZ">Arizona</option>
-                                <option value="CO">Colorado</option>
-                                <option value="ID">Idaho</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="UT">Utah</option>
-                                <option value="WY">Wyoming</option>
+                            <optgroup label="财务部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_finandepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
                             </optgroup>
-                            <optgroup label="Central Time Zone">
-                                <option value="AL">Alabama</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TX">Texas</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="WI">Wisconsin</option>
+                            <optgroup label="销售部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_salesdepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
                             </optgroup>
-                            <optgroup label="Eastern Time Zone">
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="IN">Indiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="OH">Ohio</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WV">West Virginia</option>
+                            <optgroup label="市场部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_marketdepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
+                            </optgroup>
+                            <optgroup label="项目部">
+                                <option value=" "> </option>
+                                {% for value in select_form.userprofiles_projdepart %}
+                                <option value="{{ value }}">{{ value }}</option>
+                                {% endfor %}
                             </optgroup>
                         </select>
 
@@ -145,6 +109,13 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div><!-- input-group -->
 
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <div class="btn-list">
+                                <button class="btn btn-success btn-rounded">提交</button>
+                            </div>
+                        </div>
 
                     </div><!-- panel-body -->
                 </div><!-- panel -->

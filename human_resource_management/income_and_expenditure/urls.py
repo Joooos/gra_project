@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^income-entry/$', views.income_entry, name='income-entry'),
     url(r'^expenditure-entry/$', views.expenditure_entry, name='expenditure-entry'),
     url(r'^income-and-expenditure-details/$', views.income_and_expenditure_details, name='income-and-expenditure-details'),
+    url(r'^total-summary/$', views.total_summary, name='total-summary'),
 ]

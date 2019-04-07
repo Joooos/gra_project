@@ -1,0 +1,78 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+工作清单汇总
+{% endblock %}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="mb30"></div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="readonlyinput">姓名</label>
+
+                            <input type="text" value={{ request.user }} id="readonlyinput" class="form-control"
+                                readonly="readonly" />
+
+                        </div><!-- form-group -->
+
+                        <div class="mb30"></div>
+
+                        <label>请假时间</label>
+                        <div class="input-group mb15">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                            <div class="bootstrap-timepicker"><input id="timepicker" type="text" class="form-control" />
+                            </div>
+                        </div><!-- input-group -->
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="leave_days">请假天数</label>
+                            <h6 class="col-sm-8">半天请填写0.5 , 天数需要为0.5的整数倍。</h6>
+                            <input type="text" id="leave_days" class="form-control" />
+
+                        </div><!-- form-group -->
+
+                        <div class="mb30"></div>
+
+                        <div class="mb30"></div>
+
+                        <div class="form-group">
+                            <div class="btn-list">
+                                <button class="btn btn-success btn-rounded">提交</button>
+                            </div>
+                        </div>
+
+
+                    </div><!-- panel-body -->
+                </div><!-- panel -->
+
+            </div><!-- col-md-6 -->
+        </div>
+        <!--row-->
+    </div><!-- contentpanel -->
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#timepicker').change(function () {
+            var str = $('#timepicker').val();
+            $('#readonlyinput1').val(str);
+        })
+    });
+
+    function cop() {
+        var str = $('#timepicker').val()
+        // if(str=="")
+        // {}
+        $('#readonlyinput1').val(str);
+    }
+</script>
+
+{% endblock %}

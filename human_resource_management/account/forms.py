@@ -5,6 +5,7 @@ import re
 from django.forms import widgets
 from account import models
 import json
+from django.db import connection,transaction
 
 def email_check(email):
     pattern = re.compile(r"\"?([a-zA-Z0-9.?{}]+@\w+\.\w+)\"?")
@@ -76,32 +77,22 @@ class UserForm(forms.Form):
     password = forms.CharField(label='Password', max_length=100, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
-class SelectTestForm(forms.Form):
+class SelectForm(forms.Form):
     SELVALUE = (
         ('标题', 'first'),
         ('内容', 'second'),
         ('作者', 'third'),
     )
-    # SELVALUE = models.UserProfile.objects.values_list("real_name")
-    # SELVALUE2 = models.UserProfile.objects.values_list("id","real_name")
-    # print(SELVALUE2)
-    # print(list(SELVALUE2))
-    # print(str(list(SELVALUE2)))
-    # print(eval(str(list(SELVALUE2))))
-    # for i in SELVALUE2:
-    #     print(i)
-    #     print(type(i))
-    #     print(len(SELVALUE2))
     json_list = []
     userprofiles = models.UserProfile.objects.all()
     for userprofile in userprofiles:
         json_dict = {}
         json_dict["real_name"] = userprofile.real_name
         json_list.append(json_dict)
-    print(json_list)
-    print(type(json_list))
-    print(json.dumps(json_list))
-    print(type(json.dumps(json_list)))
+    # print(json_list)
+    # print(type(json_list))
+    # print(json.dumps(json_list))
+    # print(type(json.dumps(json_list)))
     real_name_list = []
     for item in json_list:
         for key in item:
@@ -109,53 +100,42 @@ class SelectTestForm(forms.Form):
     print(real_name_list)
     sel_value = forms.CharField(max_length=10, widget=forms.widgets.Select(choices=json_list))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    # 按部门
+    # sql = "SELECT real_name from account_userprofile WHERE department = %s" % ("技术部")
+    # cursor = connection.cursor()
+    # cursor.execute(sql)
+    # userprofiles_tech = cursor.fetchall()
+    # print(userprofiles_tech)
+    userprofiles_techdepart = []
+    userprofiles_persondepart = []
+    userprofiles_finandepart = []
+    userprofiles_projdepart = []
+    userprofiles_salesdepart = []
+    userprofiles_marketdepart = []
+    userprofiles_tech = models.UserProfile.objects.filter(department = "技术部")
+    userprofiles_person = models.UserProfile.objects.filter(department = "人事部")
+    userprofiles_finan = models.UserProfile.objects.filter(department = "财务部")
+    userprofiles_proj = models.UserProfile.objects.filter(department = "项目部")
+    userprofiles_sales = models.UserProfile.objects.filter(department = "销售部")
+    userprofiles_market = models.UserProfile.objects.filter(department = "市场部")
+    for i in userprofiles_tech:
+        userprofiles_techdepart.append(i.real_name)
+    for i in userprofiles_person:
+        userprofiles_persondepart.append(i.real_name)
+    for i in userprofiles_finan:
+        userprofiles_finandepart.append(i.real_name)
+    for i in userprofiles_proj:
+        userprofiles_projdepart.append(i.real_name)
+    for i in userprofiles_sales:
+        userprofiles_salesdepart.append(i.real_name)
+    for i in userprofiles_market:
+        userprofiles_marketdepart.append(i.real_name)
+    print(userprofiles_techdepart)
+    print(userprofiles_persondepart)
+    print(userprofiles_finandepart)
+    print(userprofiles_salesdepart)
+    print(userprofiles_marketdepart)
+    print(userprofiles_projdepart)
 
 
 class UserForm(forms.ModelForm):
@@ -165,6 +145,7 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password')
+
 
 class UserProfileForm(forms.ModelForm):
     class Meta:

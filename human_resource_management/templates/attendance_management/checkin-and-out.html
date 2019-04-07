@@ -26,17 +26,15 @@
                         <label>打卡时间</label>
                         <div class="input-group mb15">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                            <div class="bootstrap-timepicker"><input id="timepicker" type="text" class="form-control" />
+                            <div class="bootstrap-timepicker"><input id="timepicker" type="text" class="form-control"/>
                             </div>
                         </div><!-- input-group -->
-
 
                         <div class="mb30"></div>
 
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="readonlyinput">打卡类型</label>
-                            <input type="text" value="正常签到" id="readonlyinput" class="form-control"
-                                readonly="readonly" />
+                            <label class="col-sm-4 control-label" for="readonlyinput1">打卡类型</label>
+                            <input type="text" value="正常打卡" id="readonlyinput1" class="form-control" readonly="readonly"/>
                         </div><!-- form-group -->
 
                         <div class="mb30"></div>
@@ -82,5 +80,28 @@
         <!--row-->
     </div><!-- contentpanel -->
 </div>
+
+<script>
+    $(function () {
+        $('#timepicker').change(function(){
+            // var str = $('#timepicker').val();
+            // $('#readonlyinput1').val(str);
+            // console.log(str)
+            // console.log(parseInt(str))
+            // console.log(Number(str))
+            // hour=str.slice(0,2)
+            // minute=str.slice(3,5)
+            // console.log(hour)
+            // console.log(minute)
+        })
+    });
+
+    function cop() {
+        // var str = $('#timepicker').val()
+        // if(str=="")
+        // {}
+        // $('#readonlyinput1').val(str);
+    }
+</script>
 
 {% endblock %}

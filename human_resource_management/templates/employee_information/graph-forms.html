@@ -86,12 +86,12 @@
     percent_after_nine1 *= 100;
 
     // 部门人数
-    var department_num = JSON.parse("{{ department_num|safe }}");
-    var department_num1 = department_num.split(',')
-    console.log(department_num)
-    console.log(department_num1)
-    console.log(typeof (department_num));
-    console.log(typeof (department_num1));
+    // var department_num = JSON.parse("{{ department_num|safe }}");
+    // var department_num1 = department_num.split(',')
+    // console.log(department_num)
+    // console.log(department_num1)
+    // console.log(typeof (department_num));
+    // console.log(typeof (department_num1));
     var percent_depart = "{{ percent_depart }}";
 
     // 年代
@@ -210,17 +210,17 @@
             type: 'pie',
             name: '人数占比',
             data:
-            [['Firefox', 45.0],
-            ['IE', 26.8],
+            [['人事部', 45.0],
+            ['技术部', 26.8],
             {
-                name: 'Chrome',
+                name: '销售部',
                 y: 12.8,
                 sliced: true,
                 selected: true
             },
-            ['Safari', 8.5],
-            ['Opera', 6.2],
-            ['Others', 0.7]]
+            ['财务部', 8.5],
+            ['项目部', 6.2],
+            ['市场部', 0.7]]
         }]
     });
 </script>

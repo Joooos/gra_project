@@ -63,6 +63,8 @@ def general_forms(request):
         message = 0
         return render(request, 'employee_information/general-forms.html', locals())
 
+
+@login_required()
 def search_forms(request):
     if request.method == "GET":
 
@@ -89,6 +91,8 @@ def search_forms(request):
 
         return render(request, 'employee_information/search-forms.html', {'items': items})
 
+
+@login_required()
 def graph_forms(request):
 
     items = []

@@ -92,8 +92,8 @@ def register(request):
 
 def user_login(request):
 
-    if request.session.get('is_login', None):
-        return HttpResponseRedirect(reverse('bulletin-board'))
+    # if request.session.get('is_login', None):
+    #     return HttpResponseRedirect(reverse('bulletin-board'))
 
     if request.method == "POST":
 
@@ -109,7 +109,7 @@ def user_login(request):
                 request.session['user_name'] = username
                 request.session.set_expiry(0)
                 is_remembered = request.POST.get('rememberMe')
-                response = HttpResponseRedirect(reverse('index'))
+                response = HttpResponseRedirect(reverse('bulletin-board'))
                 if is_remembered:
                     response.set_cookie('username', username)
                 else:
@@ -124,10 +124,7 @@ def user_login(request):
             return HttpResponse("Invalid login details supplied.")
 
     else:
-        return render(request, 'system_management/bulletin-board.html', locals())
-
-def blank(request):
-    return render(request, 'account/blank.html')
+        return render(request, 'account/login.html', locals())
 
 
 def profile(request):
