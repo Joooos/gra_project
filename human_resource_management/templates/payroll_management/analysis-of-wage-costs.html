@@ -1,0 +1,99 @@
+<!-- analysis-of-wage-costs -->
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+工资成本统计分析
+{% endblock %}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body nopadding">
+
+                        <form class="form-horizontal form-bordered" method="POST">
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">基本工资</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="basic_salary">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">电话补贴</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="phone_allowance">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">加班天数</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="overtime_days">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">加班工资</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="overtime_salary">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">缺勤天数</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="absence_days">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">考勤应扣</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="absence_salary">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">其他应扣</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="other_deduction">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">其他代扣</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="other_withholding">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">代扣个人所得税</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="personal_income_tax">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <p>
+                                    <button type="submit" class="btn btn-primary btn-lg">确定</button>
+                                </p>
+                            </div>
+
+
+                        </form>
+                    </div><!-- panel-body -->
+                </div><!-- panel -->
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+    </div><!-- contentpanel -->
+</div><!-- mainpanel -->
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+公司信息
+{% endblock %}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body nopadding">
+
+                        <form class="form-horizontal form-bordered" method="POST">
+
+                            {% csrf_token %}
+
+                            <div class="mb30"></div>
+
+                            <div class="mb30"></div>
+
+                            <div class="panel-body">
+                                <h1 class="mt5">XX有限公司</h1>
+                            </div>
+
+                            <div class="panel-body">
+                                <h4>地址：湖南.长沙.洋湖总部经济区洋湖公馆写字楼12层1214-1219#</h4>
+                                <h4>电话：0731-85514433 4000084433</h4>
+                            </div>
+
+                            <div class="panel-body">
+                                <img src="https://www.mituo.cn/upload/201801/1514870705122657.png" alt="error"
+                                    id="img_company">
+                            </div>
+
+                            <div class="mb30"></div>
+
+                            <div class="panel-body">
+                                <h2>客户服务</h2>
+                                <h4>电话：13416087000</h4>
+                                <h4>QQ：13416087000</h4>
+                            </div>
+
+
+                        </form>
+                    </div><!-- panel-body -->
+                </div><!-- panel -->
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+    </div><!-- contentpanel -->
+</div><!-- mainpanel -->
+{% endblock %}

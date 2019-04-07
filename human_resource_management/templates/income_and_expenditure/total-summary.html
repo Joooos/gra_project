@@ -1,0 +1,89 @@
+<!-- total-summary -->
+{% extends 'account/base.html' %}
+
+{% block title_block %}
+收支汇总
+{% endblock%}
+
+{% block body_block %}
+<div class="mainpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body nopadding">
+
+                        <form class="form-horizontal form-bordered" method="POST">
+
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">时间 *</label>
+                                <div class="input-group col-sm-9">
+                                    <input name="income_date" type="text" class="form-control" placeholder=""
+                                        id="datepicker">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div><!-- input-group -->
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">金额</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="income_money">
+                                </div>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">收入类型 *</label>
+                                <div class="col-sm-8">
+
+                                    <div class="rdio rdio-default">
+                                        <input type="radio" name="income_type" id="radioDefault" value="1"
+                                            checked="checked" />
+                                        <label for="radioDefault">收入类型 1</label>
+                                    </div>
+
+                                    <div class="rdio rdio-primary">
+                                        <input type="radio" name="income_type" value="2" id="radioPrimary" />
+                                        <label for="radioPrimary">收入类型 2</label>
+                                    </div>
+
+                                    <div class="rdio rdio-warning">
+                                        <input type="radio" name="income_type" value="3" id="radioWarning" />
+                                        <label for="radioWarning">收入类型 3</label>
+                                    </div>
+
+                                    <div class="rdio rdio-success">
+                                        <input type="radio" name="income_type" value="4" id="radioSuccess" />
+                                        <label for="radioSuccess">收入类型 4</label>
+                                    </div>
+
+                                    <div class="rdio rdio-danger">
+                                        <input type="radio" name="income_type" value="5" id="radioDanger" />
+                                        <label for="radioDanger">其他</label>
+                                    </div>
+
+
+                                </div><!-- col-sm-8 -->
+                            </div><!-- form-group -->
+
+
+                            <textarea name="remark" class="form-control" rows="5" placeholder="备注"></textarea>
+
+                            <div class="form-group">
+                                <p>
+                                    <button type="submit" class="btn btn-primary btn-lg">确定</button>
+                                </p>
+                            </div>
+
+
+                        </form>
+                    </div><!-- panel-body -->
+                </div><!-- panel -->
+            </div><!-- col-md-6 -->
+        </div><!-- row -->
+    </div><!-- contentpanel -->
+</div><!-- mainpanel -->
+{% endblock %}
